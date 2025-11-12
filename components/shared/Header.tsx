@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { BrutalButton } from './BrutalButton'
-import { logOut } from '@/lib/firebase/auth'
+import { signOut } from '@/lib/firebase/auth'
 import { useState, useEffect } from 'react'
 import { User } from 'firebase/auth'
 import { auth } from '@/lib/firebase/config'
@@ -23,7 +23,7 @@ export function Header() {
 
   const handleLogout = async () => {
     try {
-      await logOut()
+      await signOut()
       router.push('/auth/login')
     } catch (error) {
       console.error('로그아웃 오류:', error)

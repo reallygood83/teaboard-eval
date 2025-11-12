@@ -2,7 +2,7 @@ import React from 'react'
 
 interface BrutalButtonProps {
   children: React.ReactNode
-  variant?: 'yellow' | 'cyan' | 'pink' | 'lime' | 'orange' | 'purple' | 'outline' | 'black'
+  variant?: 'yellow' | 'cyan' | 'pink' | 'lime' | 'orange' | 'purple' | 'outline' | 'black' | 'white'
   size?: 'sm' | 'md' | 'lg' | 'xl'
   className?: string
   onClick?: () => void
@@ -32,6 +32,7 @@ export function BrutalButton({
     purple: 'bg-purple-400 text-white hover:bg-purple-300',
     outline: 'bg-white text-black hover:bg-gray-50',
     black: 'bg-black text-white hover:bg-gray-900',
+    white: 'bg-white text-black hover:bg-gray-50',
   }
 
   const sizeStyles = {
