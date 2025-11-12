@@ -4,7 +4,7 @@ import { GoogleSignInButton } from '@/components/auth/GoogleSignInButton'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Hero Section - 완전 중앙 정렬 */}
       <section className="min-h-screen flex items-center justify-center px-4 py-20">
         <div className="max-w-5xl w-full mx-auto">

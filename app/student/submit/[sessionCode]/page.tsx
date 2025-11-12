@@ -170,7 +170,7 @@ export default function StudentSubmitPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-purple-50 py-12 px-4">
+    <main className="min-h-screen bg-white neo-dots-bg py-12 px-4">
       <div className="max-w-4xl mx-auto">
         {/* 세션 정보 */}
         <BrutalCard variant="yellow" padding="lg" className="mb-8">

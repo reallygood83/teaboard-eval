@@ -50,17 +50,6 @@ export default function DashboardPage() {
 
   return (
     <main className="min-h-screen bg-lime-400">
-      {/* Header */}
-      <header className="border-b-4 border-black bg-black">
-        <div className="container-neo py-6 flex items-center justify-between">
-          <h1 className="font-black text-4xl md:text-5xl text-white uppercase tracking-tight">
-            TEABOARD
-          </h1>
-          <BrutalButton variant="orange" size="md" onClick={handleSignOut}>
-            로그아웃
-          </BrutalButton>
-        </div>
-      </header>
 
       {/* Main Content */}
       <div className="container-neo py-12">
