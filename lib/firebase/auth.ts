@@ -1,6 +1,8 @@
 import {
   signInWithPopup,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
   User
@@ -9,6 +11,28 @@ import { auth } from './config'
 
 // Google Provider
 const googleProvider = new GoogleAuthProvider()
+
+// 이메일 로그인
+export const signInWithEmail = async (email: string, password: string) => {
+  try {
+    const result = await signInWithEmailAndPassword(auth, email, password)
+    return result.user
+  } catch (error: any) {
+    console.error('이메일 로그인 오류:', error)
+    throw error
+  }
+}
+
+// 이메일 회원가입
+export const signUpWithEmail = async (email: string, password: string) => {
+  try {
+    const result = await createUserWithEmailAndPassword(auth, email, password)
+    return result.user
+  } catch (error: any) {
+    console.error('회원가입 오류:', error)
+    throw error
+  }
+}
 
 // Google 로그인
 export const signInWithGoogle = async () => {
