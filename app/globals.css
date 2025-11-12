@@ -1,26 +1,385 @@
 @import "tailwindcss";
 
 :root {
+  /* Neo-Brutalism Educational Color Palette */
+  --neo-yellow: 250 204 21;      /* #FACC15 - Primary/Hero */
+  --neo-cyan: 34 211 238;         /* #22D3EE - Secondary/Features */
+  --neo-pink: 244 114 182;        /* #F472B6 - Accent/CTA */
+  --neo-lime: 163 230 53;         /* #A3E635 - Success */
+  --neo-orange: 251 146 60;       /* #FB923C - Warning */
+  --neo-purple: 192 132 252;      /* #C084FC - Info */
+  --neo-green: 74 222 128;        /* #4ADE80 - Confirmation */
+  --neo-blue: 96 165 250;         /* #60A5FA - Links */
+  --neo-red: 248 113 113;         /* #F87171 - Error */
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --border: #000000;
 }
 
 @theme inline {
+  /* Educational Color System */
+  --color-neo-yellow: rgb(var(--neo-yellow));
+  --color-neo-cyan: rgb(var(--neo-cyan));
+  --color-neo-pink: rgb(var(--neo-pink));
+  --color-neo-lime: rgb(var(--neo-lime));
+  --color-neo-orange: rgb(var(--neo-orange));
+  --color-neo-purple: rgb(var(--neo-purple));
+  --color-neo-green: rgb(var(--neo-green));
+  --color-neo-blue: rgb(var(--neo-blue));
+  --color-neo-red: rgb(var(--neo-red));
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-border: var(--border);
+
+  /* Typography - Heavy weights for Neo-Brutalism */
+  --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* Font Weights - Bold by default */
+  --font-weight-normal: 600;    /* Semi-bold as normal */
+  --font-weight-bold: 700;      /* Bold */
+  --font-weight-black: 900;     /* Black for headings */
+
+  /* Spacing - Generous 8px grid */
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 1rem;     /* 16px */
+  --spacing-md: 1.5rem;   /* 24px */
+  --spacing-lg: 2rem;     /* 32px */
+  --spacing-xl: 3rem;     /* 48px */
+  --spacing-2xl: 4rem;    /* 64px */
+  --spacing-3xl: 6rem;    /* 96px */
+
+  /* Border - Always 4px black */
+  --border-width: 4px;
+
+  /* Shadows - Hard, no blur */
+  --shadow-brutal-sm: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-md: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-xl: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-brutal-2xl: 16px 16px 0px 0px rgba(0, 0, 0, 1);
+
+  /* Hover shadow reduction */
+  --shadow-hover-sm: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-hover-md: 3px 3px 0px 0px rgba(0, 0, 0, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography - Bold Neo-Brutalism style */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-black);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);    /* 40-64px responsive */
+  letter-spacing: -0.03em;
+}
+h2 { font-size: clamp(2rem, 4vw, 3rem); }     /* 32-48px */
+h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); } /* 24-36px */
+h4 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); } /* 20-28px */
+h5 { font-size: 1.25rem; }  /* 20px */
+h6 { font-size: 1rem; }     /* 16px */
+
+p {
+  margin-bottom: 1em;
+  font-weight: var(--font-weight-normal);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Links - Bold and clear */
+a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+
+/* Neo-Brutalism Utility Classes */
+.neo-border {
+  border: var(--border-width) solid var(--border);
+}
+
+.neo-shadow-sm { box-shadow: var(--shadow-brutal-sm); }
+.neo-shadow-md { box-shadow: var(--shadow-brutal-md); }
+.neo-shadow-lg { box-shadow: var(--shadow-brutal-lg); }
+.neo-shadow-xl { box-shadow: var(--shadow-brutal-xl); }
+.neo-shadow-2xl { box-shadow: var(--shadow-brutal-2xl); }
+
+/* Interactive Effects */
+.neo-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-hover:hover {
+  transform: translate(-2px, -2px);
+}
+
+.neo-hover:hover.neo-shadow-sm {
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.neo-hover:hover.neo-shadow-md {
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
+}
+
+.neo-hover:hover.neo-shadow-lg {
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Press Effect */
+.neo-press:active {
+  transform: translate(2px, 2px);
+}
+
+.neo-press:active.neo-shadow-sm {
+  box-shadow: var(--shadow-hover-sm);
+}
+
+.neo-press:active.neo-shadow-md {
+  box-shadow: var(--shadow-hover-md);
+}
+
+.neo-press:active.neo-shadow-lg {
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Button Base Style */
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-bold);
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus Styles - High Contrast */
+*:focus-visible {
+  outline: 4px solid rgb(var(--neo-yellow));
+  outline-offset: 4px;
+}
+
+/* Selection - Bold highlight */
+::selection {
+  background: rgb(var(--neo-yellow));
+  color: var(--foreground);
+}
+
+::-moz-selection {
+  background: rgb(var(--neo-yellow));
+  color: var(--foreground);
+}
+
+/* Scrollbar - Neo-Brutalism style */
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border: 4px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--neo-yellow));
+  border: 4px solid var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--neo-cyan));
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--background);
+  border: 4px solid var(--border);
+}
+
+/* Loading Animations */
+@keyframes pulse-brutal {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.animate-pulse-brutal {
+  animation: pulse-brutal 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
+/* Grid Patterns for Backgrounds */
+.neo-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.neo-dots-bg {
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Card Styles */
+.neo-card {
+  background: var(--background);
+  border: var(--border-width) solid var(--border);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-brutal-lg);
+}
+
+.neo-card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.neo-card-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  font-size: 1rem;
+  padding: var(--spacing-sm);
+  border: var(--border-width) solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: var(--shadow-brutal-md);
+  transform: translate(-2px, -2px);
+}
+
+/* Container Widths */
+.container-neo {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+
+  .neo-border {
+    border-width: 3px;
+  }
+
+  .neo-shadow-lg {
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
+}
+
+@media (max-width: 480px) {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .container-neo {
+    padding-left: var(--spacing-sm);
+    padding-right: var(--spacing-sm);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .neo-shadow-sm,
+  .neo-shadow-md,
+  .neo-shadow-lg,
+  .neo-shadow-xl,
+  .neo-shadow-2xl {
+    box-shadow: none !important;
+    border: 2px solid var(--border) !important;
+  }
 }
