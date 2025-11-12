@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged,
+  updateProfile,
   User
 } from 'firebase/auth'
 import { auth } from './config'
@@ -24,9 +25,15 @@ export const signInWithEmail = async (email: string, password: string) => {
 }
 
 // 이메일 회원가입
-export const signUpWithEmail = async (email: string, password: string) => {
+export const signUpWithEmail = async (email: string, password: string, displayName?: string) => {
   try {
     const result = await createUserWithEmailAndPassword(auth, email, password)
+
+    // displayName이 제공된 경우 프로필 업데이트
+    if (displayName && result.user) {
+      await updateProfile(result.user, { displayName })
+    }
+
     return result.user
   } catch (error: any) {
     console.error('회원가입 오류:', error)
