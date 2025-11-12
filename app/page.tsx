@@ -16,7 +16,7 @@ export default function Home() {
 
             <div className="bg-yellow-400 border-4 border-black shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] p-8 transform -rotate-1 inline-block">
               <p className="text-2xl md:text-3xl text-black font-black uppercase">
-                AI 기반 루브릭 생성으로<br />평가 시간을 90% 절감하세요
+                AI 기반 루브릭 생성 및 OCR 채점으로<br />시간을 90% 절감하세요
               </p>
             </div>
           </div>
