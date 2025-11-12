@@ -2,11 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { User } from 'firebase/auth'
+import { auth } from '@/lib/firebase/config'
 import { BrutalCard } from '@/components/shared/BrutalCard'
 import { BrutalButton } from '@/components/shared/BrutalButton'
 
 export default function CreateSessionPage() {
   const router = useRouter()
+  const [user, setUser] = useState<User | null>(null)
   const [rubrics, setRubrics] = useState<any[]>([])
   const [selectedRubric, setSelectedRubric] = useState('')
   const [sessionName, setSessionName] = useState('')
@@ -14,9 +17,19 @@ export default function CreateSessionPage() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        router.push('/')
+      } else {
+        setUser(user)
+      }
+    })
+
     // Load available rubrics
     fetchRubrics()
-  }, [])
+
+    return () => unsubscribe()
+  }, [router])
 
   const fetchRubrics = async () => {
     try {
@@ -34,6 +47,12 @@ export default function CreateSessionPage() {
       return
     }
 
+    if (!user) {
+      alert('로그인이 필요합니다.')
+      router.push('/')
+      return
+    }
+
     setLoading(true)
     try {
       const response = await fetch('/api/sessions/create', {
@@ -42,7 +61,8 @@ export default function CreateSessionPage() {
         body: JSON.stringify({
           name: sessionName,
           rubricId: selectedRubric,
-          question
+          question,
+          teacherId: user.uid
         })
       })
 

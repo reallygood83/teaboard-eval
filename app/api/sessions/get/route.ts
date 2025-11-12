@@ -31,7 +31,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ session: null })
     }
 
-    const [sessionId, sessionData] = sessionEntry
+    const [sessionId, sessionData] = sessionEntry as [string, Record<string, any>]
     return NextResponse.json({
       session: {
         id: sessionId,

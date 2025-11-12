@@ -80,7 +80,7 @@ export default function DashboardPage() {
         </BrutalCard>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <BrutalCard variant="yellow" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">🤖</div>
@@ -137,6 +137,26 @@ export default function DashboardPage() {
                 onClick={() => router.push('/dashboard/results')}
               >
                 보기
+              </BrutalButton>
+            </div>
+          </BrutalCard>
+
+          <BrutalCard variant="purple" padding="lg" hover>
+            <div className="text-center">
+              <div className="text-6xl mb-4">⚙️</div>
+              <h3 className="text-2xl font-black mb-3 uppercase">
+                AI 모델 설정
+              </h3>
+              <p className="text-base font-semibold mb-6">
+                Gemini, Grok API 키 및 모델 선택
+              </p>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/settings')}
+              >
+                설정하기
               </BrutalButton>
             </div>
           </BrutalCard>

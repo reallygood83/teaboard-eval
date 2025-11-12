@@ -14,9 +14,9 @@ function generateSessionCode(): string {
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, rubricId, question } = await request.json()
+    const { name, rubricId, question, teacherId } = await request.json()
 
-    if (!name || !rubricId || !question) {
+    if (!name || !rubricId || !question || !teacherId) {
       return NextResponse.json(
         { error: '모든 필드를 입력해주세요.' },
         { status: 400 }
@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
       name,
       rubricId,
       question,
+      teacherId,
       sessionCode,
       createdAt: new Date().toISOString(),
       status: 'active',
