@@ -71,7 +71,18 @@ export default function CreateSessionPage() {
       }
 
       const data = await response.json()
-      alert(`세션이 생성되었습니다!\n학생 코드: ${data.sessionCode}`)
+
+      // 학생 제출 링크 생성
+      const studentLink = `${window.location.origin}/student/submit/${data.sessionCode}`
+
+      // 클립보드에 링크 복사
+      try {
+        await navigator.clipboard.writeText(studentLink)
+        alert(`✅ 세션이 생성되었습니다!\n\n📋 학생 제출 링크가 클립보드에 복사되었습니다!\n\n🔗 ${studentLink}\n\n학생들에게 이 링크를 공유하세요!`)
+      } catch (err) {
+        alert(`✅ 세션이 생성되었습니다!\n\n🔗 학생 제출 링크:\n${studentLink}\n\n위 링크를 복사하여 학생들에게 공유하세요!`)
+      }
+
       router.push('/dashboard')
     } catch (error) {
       console.error('Error creating session:', error)
