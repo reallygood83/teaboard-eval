@@ -144,7 +144,7 @@ export default function TemplateEditorPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-blue-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -158,7 +158,7 @@ export default function TemplateEditorPage() {
   return (
     <>
       {/* 편집 모드 (화면 표시용) */}
-      <main className="min-h-screen bg-blue-400 print:hidden">
+      <main className="min-h-screen bg-white neo-dots-bg print:hidden">
         {/* Header */}
         <header className="border-b-4 border-black bg-black">
           <div className="container-neo py-6 flex items-center justify-between">
@@ -167,7 +167,7 @@ export default function TemplateEditorPage() {
             </h1>
             <div className="flex gap-3">
               <BrutalButton
-                variant="lime"
+                variant="black"
                 size="md"
                 onClick={saveToFirebase}
                 disabled={saving}
@@ -176,7 +176,7 @@ export default function TemplateEditorPage() {
                 {saveStatus === 'saving' ? '저장 중...' : saveStatus === 'saved' ? '저장됨!' : 'DB 저장'}
               </BrutalButton>
               <BrutalButton
-                variant="cyan"
+                variant="black"
                 size="md"
                 onClick={handlePrint}
                 icon={<span>🖨️</span>}
@@ -193,16 +193,11 @@ export default function TemplateEditorPage() {
         {/* Content */}
         <div className="container-neo py-12 max-w-5xl mx-auto">
           {/* 안내 */}
-          <BrutalCard variant="yellow" padding="md" className="mb-6">
+          <BrutalCard variant="white" padding="md" className="mb-6">
             <div className="flex items-start gap-3">
               <div className="text-3xl">💡</div>
               <div>
-                <p className="font-bold text-gray-800">
-                  <strong>자동 저장:</strong> 입력한 내용은 자동으로 로컬에 저장됩니다.
-                </p>
-                <p className="font-bold text-gray-700 text-sm mt-1">
-                  'DB 저장' 버튼을 누르면 클라우드에 영구 저장되며, '인쇄' 버튼으로 바로 출력할 수 있습니다.
-                </p>
+                <p className="font-bold text-gray-800">자동 저장</p>
               </div>
             </div>
           </BrutalCard>
@@ -224,7 +219,7 @@ export default function TemplateEditorPage() {
             <div className="flex items-center justify-between mb-6">
               <label className="font-black text-xl uppercase">📋 평가 문제</label>
               <BrutalButton
-                variant="lime"
+                variant="black"
                 size="sm"
                 onClick={addQuestion}
                 icon={<span>➕</span>}
@@ -249,7 +244,7 @@ export default function TemplateEditorPage() {
                     />
                     <button
                       onClick={() => removeQuestion(question.id)}
-                      className="flex-shrink-0 w-8 h-8 bg-red-400 border-2 border-black text-black font-black hover:bg-red-500 transition-colors"
+                      className="flex-shrink-0 w-8 h-8 bg-white border-2 border-black text-black font-black hover:bg-gray-100 transition-colors"
                       disabled={questions.length <= 1}
                     >
                       ×
@@ -261,11 +256,9 @@ export default function TemplateEditorPage() {
           </BrutalCard>
 
           {/* 미리보기 안내 */}
-          <BrutalCard variant="orange" padding="md">
+          <BrutalCard variant="white" padding="md">
             <div className="text-center">
-              <p className="font-bold text-gray-800">
-                <strong>🖨️ 인쇄 미리보기:</strong> '인쇄' 버튼을 누르면 깔끔한 A4 형식으로 출력됩니다
-              </p>
+              <p className="font-bold text-gray-800">🖨️ 인쇄 미리보기</p>
             </div>
           </BrutalCard>
         </div>
@@ -342,8 +335,8 @@ export default function TemplateEditorPage() {
             }
 
             .print-instructions {
-              background-color: #fffacd;
-              border: 2px solid #ffd700;
+              background-color: #ffffff;
+              border: 2px solid #000000;
               padding: 15px;
               margin-bottom: 20px;
               font-size: 12pt;
@@ -394,7 +387,7 @@ export default function TemplateEditorPage() {
           </div>
         ))}
 
-        <div style={{ marginTop: '30px', padding: '15px', border: '2px solid #4CAF50', backgroundColor: '#f0fff0' }}>
+        <div style={{ marginTop: '30px', padding: '15px', border: '2px solid #000', backgroundColor: '#ffffff' }}>
           <p style={{ margin: 0, fontWeight: 'bold', textAlign: 'center' }}>
             📸 작성 완료 후 TeaBoard에 사진을 업로드하면 AI가 자동으로 채점합니다!
           </p>

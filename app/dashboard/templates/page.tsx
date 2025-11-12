@@ -60,7 +60,7 @@ export default function TemplatesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-blue-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -72,7 +72,7 @@ export default function TemplatesPage() {
   }
 
   return (
-    <main className="min-h-screen bg-blue-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -88,15 +88,12 @@ export default function TemplatesPage() {
       {/* Content */}
       <div className="container-neo py-12 max-w-5xl mx-auto">
         {/* 평가지 편집기 안내 카드 */}
-        <BrutalCard variant="lime" padding="xl" className="mb-8">
+        <BrutalCard variant="white" padding="xl" className="mb-8">
           <div className="text-center">
             <div className="text-6xl mb-4">✏️</div>
             <h2 className="text-3xl font-black uppercase mb-4">
               사이트에서 바로 평가지 만들기
             </h2>
-            <p className="text-lg font-bold text-gray-800 mb-6">
-              평가지 편집기를 사용하면 사이트 내에서 평가지를 작성하고, 저장하고, 인쇄할 수 있습니다!
-            </p>
             <BrutalButton
               variant="black"
               size="xl"
@@ -109,23 +106,13 @@ export default function TemplatesPage() {
         </BrutalCard>
 
         {/* 안내 카드 */}
-        <BrutalCard variant="yellow" padding="lg" className="mb-8">
+        <BrutalCard variant="white" padding="lg" className="mb-8">
           <div className="flex items-start gap-4">
             <div className="text-5xl">💡</div>
             <div className="flex-1">
               <h2 className="text-2xl font-black uppercase mb-3">
                 AI 친화적 평가지 템플릿
               </h2>
-              <p className="text-lg font-bold text-gray-800 mb-4">
-                OCR과 AI가 정확하게 인식할 수 있도록 최적화된 A4 평가지 양식입니다.
-              </p>
-              <ul className="space-y-2 text-base font-semibold text-gray-700">
-                <li>✅ <strong>표 형식 구조</strong>: 명확한 구분선으로 답안 영역 분리</li>
-                <li>✅ <strong>충분한 답안 공간</strong>: AI가 텍스트를 정확히 추출할 수 있는 여백</li>
-                <li>✅ <strong>표준 폰트 크기</strong>: OCR 인식률이 높은 14pt 이상 권장</li>
-                <li>✅ <strong>학생 정보 입력란</strong>: 이름, 학년, 반, 번호 필드 포함</li>
-                <li>✅ <strong>문제번호 표시</strong>: 각 문제를 명확히 구분</li>
-              </ul>
             </div>
           </div>
         </BrutalCard>
@@ -195,14 +182,12 @@ export default function TemplatesPage() {
             </div>
           </div>
 
-          <p className="text-center text-base font-bold text-gray-600 mb-6">
-            실제 템플릿은 A4 크기 (210mm × 297mm)로 제공됩니다
-          </p>
+          
 
           {/* 다운로드 버튼 */}
           <div className="flex gap-4 justify-center">
             <BrutalButton
-              variant="pink"
+              variant="black"
               size="xl"
               onClick={() => handleDownload('pdf')}
               disabled={downloading !== null}
@@ -212,7 +197,7 @@ export default function TemplatesPage() {
             </BrutalButton>
 
             <BrutalButton
-              variant="cyan"
+              variant="black"
               size="xl"
               onClick={() => handleDownload('docx')}
               disabled={downloading !== null}
@@ -224,34 +209,13 @@ export default function TemplatesPage() {
         </BrutalCard>
 
         {/* 사용 안내 */}
-        <BrutalCard variant="cyan" padding="lg">
+        <BrutalCard variant="white" padding="lg">
           <div className="flex items-start gap-4">
             <div className="text-4xl">📌</div>
             <div className="flex-1">
               <h3 className="text-xl font-black uppercase mb-3">
-                평가지 제작 방법 (추천)
+                사용 안내
               </h3>
-              <div className="mb-4 p-4 bg-white border-2 border-black">
-                <p className="font-black text-base mb-2">✨ <strong>사이트 내 편집기 사용 (권장)</strong></p>
-                <ol className="space-y-2 text-base font-semibold text-gray-700 ml-4">
-                  <li><strong>1단계:</strong> 평가지 편집기 열기</li>
-                  <li><strong>2단계:</strong> 제목과 문제를 직접 입력 (자동 저장)</li>
-                  <li><strong>3단계:</strong> DB 저장 버튼으로 클라우드에 저장</li>
-                  <li><strong>4단계:</strong> 인쇄 버튼으로 바로 출력</li>
-                  <li><strong>5단계:</strong> 학생들이 작성한 평가지를 촬영하여 업로드</li>
-                </ol>
-              </div>
-              <div className="p-4 bg-gray-50 border-2 border-gray-300">
-                <p className="font-black text-base mb-2">📥 <strong>템플릿 다운로드 방식 (선택)</strong></p>
-                <ol className="space-y-2 text-base font-semibold text-gray-600 ml-4">
-                  <li><strong>1단계:</strong> 아래에서 PDF 또는 워드 템플릿 다운로드</li>
-                  <li><strong>2단계:</strong> 워드 파일을 열어 문제 내용 수정</li>
-                  <li><strong>3단계:</strong> 수정한 평가지를 인쇄하여 배부</li>
-                </ol>
-              </div>
-              <div className="mt-4 p-4 bg-yellow-50 border-2 border-yellow-400">
-                <p className="font-black text-sm">💡 <strong>TIP:</strong> 촬영 시 조명이 밝은 곳에서 정면으로 찍으면 OCR 인식률이 높아집니다!</p>
-              </div>
             </div>
           </div>
         </BrutalCard>
