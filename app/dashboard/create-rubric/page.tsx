@@ -73,7 +73,7 @@ export default function CreateRubricPage() {
   }
 
   return (
-    <main className="min-h-screen bg-yellow-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -94,9 +94,6 @@ export default function CreateRubricPage() {
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">🤖</div>
               <h2 className="text-3xl font-black uppercase mb-2">입력 정보</h2>
-              <p className="text-lg font-bold text-gray-700">
-                AI가 자동으로 평가 기준을 만듭니다
-              </p>
             </div>
 
             <div className="space-y-6">
@@ -144,7 +141,7 @@ export default function CreateRubricPage() {
 
               {/* Generate Button */}
               <BrutalButton
-                variant="cyan"
+                variant="black"
                 size="xl"
                 fullWidth
                 onClick={handleGenerate}
@@ -157,13 +154,10 @@ export default function CreateRubricPage() {
           </BrutalCard>
 
           {/* Generated Rubric */}
-          <BrutalCard variant="lime" padding="xl">
+          <BrutalCard variant="white" padding="xl">
             <div className="text-center mb-8">
               <div className="text-6xl mb-4">📋</div>
               <h2 className="text-3xl font-black uppercase mb-2">생성된 루브릭</h2>
-              <p className="text-lg font-bold text-gray-700">
-                {generatedRubric ? 'AI가 만든 평가 기준입니다' : '왼쪽에서 정보를 입력하세요'}
-              </p>
             </div>
 
             {generatedRubric ? (
@@ -181,15 +175,15 @@ export default function CreateRubricPage() {
                           {criterion.description}
                         </p>
                         <div className="grid grid-cols-3 gap-2 text-sm font-bold">
-                          <div className="bg-red-100 border-2 border-black p-2">
+                          <div className="bg-white border-2 border-black p-2">
                             <span className="block font-black">하</span>
                             {criterion.low}
                           </div>
-                          <div className="bg-yellow-100 border-2 border-black p-2">
+                          <div className="bg-white border-2 border-black p-2">
                             <span className="block font-black">중</span>
                             {criterion.medium}
                           </div>
-                          <div className="bg-green-100 border-2 border-black p-2">
+                          <div className="bg-white border-2 border-black p-2">
                             <span className="block font-black">상</span>
                             {criterion.high}
                           </div>
@@ -201,7 +195,7 @@ export default function CreateRubricPage() {
 
                 {/* Save Button */}
                 <BrutalButton
-                  variant="pink"
+                  variant="black"
                   size="xl"
                   fullWidth
                   onClick={handleSave}

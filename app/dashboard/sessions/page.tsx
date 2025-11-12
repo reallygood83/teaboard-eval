@@ -108,7 +108,7 @@ export default function SessionsManagementPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cyan-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -120,7 +120,7 @@ export default function SessionsManagementPage() {
   }
 
   return (
-    <main className="min-h-screen bg-cyan-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -128,7 +128,7 @@ export default function SessionsManagementPage() {
             평가 세션 관리
           </h1>
           <div className="flex gap-3">
-            <BrutalButton variant="yellow" size="md" onClick={() => router.push('/dashboard/create-session')}>
+            <BrutalButton variant="black" size="md" onClick={() => router.push('/dashboard/create-session')}>
               + 새 세션
             </BrutalButton>
             <BrutalButton variant="white" size="md" onClick={() => router.push('/dashboard')}>
@@ -145,9 +145,7 @@ export default function SessionsManagementPage() {
             <div className="text-center py-12">
               <div className="text-8xl mb-6">📝</div>
               <h2 className="text-3xl font-black uppercase mb-4">세션이 없습니다</h2>
-              <p className="text-lg font-bold text-gray-700 mb-8">
-                첫 평가 세션을 만들어보세요!
-              </p>
+              
               <BrutalButton
                 variant="yellow"
                 size="xl"
@@ -160,22 +158,6 @@ export default function SessionsManagementPage() {
           </BrutalCard>
         ) : (
           <div className="space-y-6">
-            {/* 안내 카드 */}
-            <BrutalCard variant="yellow" padding="md">
-              <div className="flex items-start gap-3">
-                <div className="text-3xl">💡</div>
-                <div>
-                  <p className="font-bold text-gray-800">
-                    <strong>세션 관리 방법:</strong>
-                  </p>
-                  <ul className="mt-2 space-y-1 text-sm font-semibold text-gray-700">
-                    <li>• <strong>학생 링크 복사</strong>: 버튼을 클릭하면 학생 제출 링크가 복사됩니다</li>
-                    <li>• <strong>세션 종료</strong>: 종료하면 학생들이 더 이상 제출할 수 없습니다</li>
-                    <li>• <strong>제출 현황</strong>: 실시간으로 학생 제출 수를 확인할 수 있습니다</li>
-                  </ul>
-                </div>
-              </div>
-            </BrutalCard>
 
             {/* 세션 목록 */}
             {sessions.map((session) => (
@@ -187,11 +169,11 @@ export default function SessionsManagementPage() {
                       <div className="flex items-center gap-3 mb-2">
                         <h3 className="text-2xl font-black uppercase">{session.name}</h3>
                         {session.status === 'active' ? (
-                          <span className="px-3 py-1 bg-lime-400 border-2 border-black text-xs font-black uppercase">
+                          <span className="px-3 py-1 bg-white border-2 border-black text-xs font-black uppercase">
                             진행중
                           </span>
                         ) : (
-                          <span className="px-3 py-1 bg-gray-400 border-2 border-black text-xs font-black uppercase">
+                          <span className="px-3 py-1 bg-white border-2 border-black text-xs font-black uppercase">
                             종료됨
                           </span>
                         )}
@@ -210,11 +192,11 @@ export default function SessionsManagementPage() {
 
                   {/* 세션 코드 & 링크 */}
                   <div className="grid md:grid-cols-2 gap-4">
-                    <div className="bg-purple-100 border-2 border-black p-4">
+                    <div className="bg-white border-2 border-black p-4">
                       <p className="text-sm font-black uppercase mb-2">세션 코드</p>
                       <p className="text-3xl font-black tracking-wider">{session.sessionCode}</p>
                     </div>
-                    <div className="bg-blue-100 border-2 border-black p-4">
+                    <div className="bg-white border-2 border-black p-4">
                       <p className="text-sm font-black uppercase mb-2">제출 현황</p>
                       <p className="text-3xl font-black">
                         {session.submissionCount || 0} <span className="text-lg">명</span>
@@ -225,7 +207,7 @@ export default function SessionsManagementPage() {
                   {/* 액션 버튼 */}
                   <div className="flex flex-wrap gap-3">
                     <BrutalButton
-                      variant="yellow"
+                      variant="black"
                       size="md"
                       onClick={() => copyStudentLink(session.sessionCode)}
                       icon={copiedCode === session.sessionCode ?
@@ -237,7 +219,7 @@ export default function SessionsManagementPage() {
                     </BrutalButton>
 
                     <BrutalButton
-                      variant="cyan"
+                      variant="black"
                       size="md"
                       onClick={() => router.push(`/dashboard/results?session=${session.id}`)}
                       icon={<span className="text-xl">📊</span>}
@@ -246,7 +228,7 @@ export default function SessionsManagementPage() {
                     </BrutalButton>
 
                     <BrutalButton
-                      variant={session.status === 'active' ? 'orange' : 'lime'}
+                      variant="black"
                       size="md"
                       onClick={() => toggleSessionStatus(session.id, session.status)}
                       icon={<span className="text-xl">{session.status === 'active' ? '🔒' : '🔓'}</span>}

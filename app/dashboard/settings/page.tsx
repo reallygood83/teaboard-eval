@@ -97,7 +97,7 @@ export default function SettingsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-yellow-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -109,7 +109,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-yellow-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -133,9 +133,6 @@ export default function SettingsPage() {
                 <div className="text-4xl">🤖</div>
                 <h2 className="text-3xl font-black uppercase">AI 모델 선택</h2>
               </div>
-              <p className="text-lg font-semibold text-gray-700">
-                평가에 사용할 AI 모델을 선택하세요
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">
@@ -145,8 +142,8 @@ export default function SettingsPage() {
                 className={`
                   p-6 border-4 border-black cursor-pointer transition-all
                   ${selectedModel === 'gemini-2.5-flash'
-                    ? 'bg-cyan-400 neo-shadow-lg scale-105'
-                    : 'bg-white hover:bg-cyan-100'}
+                    ? 'bg-white neo-shadow-lg scale-105'
+                    : 'bg-white hover:bg-gray-50'}
                 `}
               >
                 <div className="text-center">
@@ -157,7 +154,7 @@ export default function SettingsPage() {
                   </p>
                   {selectedModel === 'gemini-2.5-flash' && (
                     <div className="mt-4 bg-white border-2 border-black p-2">
-                      <span className="text-xs font-black text-cyan-600">선택됨 ✓</span>
+                      <span className="text-xs font-black text-black">선택됨 ✓</span>
                     </div>
                   )}
                 </div>
@@ -169,8 +166,8 @@ export default function SettingsPage() {
                 className={`
                   p-6 border-4 border-black cursor-pointer transition-all
                   ${selectedModel === 'grok-4-fast'
-                    ? 'bg-pink-400 neo-shadow-lg scale-105'
-                    : 'bg-white hover:bg-pink-100'}
+                    ? 'bg-white neo-shadow-lg scale-105'
+                    : 'bg-white hover:bg-gray-50'}
                 `}
               >
                 <div className="text-center">
@@ -181,7 +178,7 @@ export default function SettingsPage() {
                   </p>
                   {selectedModel === 'grok-4-fast' && (
                     <div className="mt-4 bg-white border-2 border-black p-2">
-                      <span className="text-xs font-black text-pink-600">선택됨 ✓</span>
+                      <span className="text-xs font-black text-black">선택됨 ✓</span>
                     </div>
                   )}
                 </div>
@@ -196,14 +193,10 @@ export default function SettingsPage() {
                 <div className="text-4xl">🔑</div>
                 <h2 className="text-3xl font-black uppercase">API 키 설정</h2>
               </div>
-              <p className="text-lg font-semibold text-gray-700 mb-4">
-                AI 모델 사용을 위한 API 키를 입력하세요
-              </p>
 
-              <BrutalCard variant="yellow" padding="sm">
+              <BrutalCard variant="white" padding="sm">
                 <p className="text-sm font-bold">
-                  💡 <strong>BYOK (Bring Your Own Key)</strong>:
-                  여러분의 API 키를 직접 사용하여 데이터 주권을 보장합니다.
+                  💡 BYOK: 직접 발급한 API 키를 사용합니다.
                 </p>
               </BrutalCard>
             </div>
@@ -220,7 +213,7 @@ export default function SettingsPage() {
                     value={geminiApiKey}
                     onChange={(e) => setGeminiApiKey(e.target.value)}
                     placeholder="AIza...로 시작하는 키를 입력하세요"
-                    className="w-full p-4 border-4 border-black font-mono text-sm focus:outline-none focus:border-cyan-600"
+                    className="w-full p-4 border-4 border-black font-mono text-sm focus:outline-none focus:border-black"
                   />
                   <button
                     type="button"
@@ -235,14 +228,14 @@ export default function SettingsPage() {
                     href="https://aistudio.google.com/app/apikey"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-600 underline hover:text-cyan-800"
+                    className="underline"
                   >
                     Gemini API 키 발급받기 →
                   </a>
                 </p>
                 {selectedModel === 'gemini-2.5-flash' && !geminiApiKey && (
-                  <div className="mt-2 bg-orange-100 border-2 border-black p-2">
-                    <p className="text-xs font-bold text-orange-700">
+                  <div className="mt-2 bg-white border-2 border-black p-2">
+                    <p className="text-xs font-bold text-black">
                       ⚠️ Gemini 모델을 사용하려면 API 키가 필요합니다
                     </p>
                   </div>
@@ -260,7 +253,7 @@ export default function SettingsPage() {
                     value={grokApiKey}
                     onChange={(e) => setGrokApiKey(e.target.value)}
                     placeholder="xai-...로 시작하는 키를 입력하세요"
-                    className="w-full p-4 border-4 border-black font-mono text-sm focus:outline-none focus:border-pink-600"
+                    className="w-full p-4 border-4 border-black font-mono text-sm focus:outline-none focus:border-black"
                   />
                   <button
                     type="button"
@@ -275,14 +268,14 @@ export default function SettingsPage() {
                     href="https://console.x.ai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pink-600 underline hover:text-pink-800"
+                    className="underline"
                   >
                     Grok API 키 발급받기 →
                   </a>
                 </p>
                 {selectedModel === 'grok-4-fast' && !grokApiKey && (
-                  <div className="mt-2 bg-orange-100 border-2 border-black p-2">
-                    <p className="text-xs font-bold text-orange-700">
+                  <div className="mt-2 bg-white border-2 border-black p-2">
+                    <p className="text-xs font-bold text-black">
                       ⚠️ Grok 모델을 사용하려면 API 키가 필요합니다
                     </p>
                   </div>
@@ -304,20 +297,14 @@ export default function SettingsPage() {
 
           {/* Info Cards */}
           <div className="grid md:grid-cols-2 gap-4">
-            <BrutalCard variant="cyan" padding="md">
+            <BrutalCard variant="white" padding="md">
               <h3 className="text-lg font-black mb-2">🔒 보안</h3>
-              <p className="text-sm font-semibold text-gray-800">
-                API 키는 Firebase에 암호화되어 저장되며,
-                교사 본인만 접근 가능합니다.
-              </p>
+              
             </BrutalCard>
 
-            <BrutalCard variant="lime" padding="md">
+            <BrutalCard variant="white" padding="md">
               <h3 className="text-lg font-black mb-2">💰 비용</h3>
-              <p className="text-sm font-semibold text-gray-800">
-                Gemini: 무료 티어 제공<br/>
-                Grok: 2025-11-21까지 무료 사용
-              </p>
+              
             </BrutalCard>
           </div>
         </div>

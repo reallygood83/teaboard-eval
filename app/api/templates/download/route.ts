@@ -17,22 +17,18 @@ export async function POST(request: NextRequest) {
     if (format === 'pdf') {
       // PDF 생성 (향후 puppeteer 또는 jsPDF 사용)
       // 현재는 HTML을 직접 반환 (브라우저 인쇄 기능 사용)
-      const htmlBlob = new Blob([htmlContent], { type: 'text/html' })
-
-      return new NextResponse(htmlBlob, {
+      return new NextResponse(htmlContent, {
         headers: {
-          'Content-Type': 'text/html',
+          'Content-Type': 'text/html; charset=utf-8',
           'Content-Disposition': 'attachment; filename="평가지_템플릿_AI친화적.html"'
         }
       })
     } else {
       // DOCX 생성 (향후 docx 라이브러리 사용)
       // 현재는 HTML을 직접 반환 (워드에서 열 수 있도록)
-      const htmlBlob = new Blob([htmlContent], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' })
-
-      return new NextResponse(htmlBlob, {
+      return new NextResponse(htmlContent, {
         headers: {
-          'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document; charset=utf-8',
           'Content-Disposition': 'attachment; filename="평가지_템플릿_AI친화적.doc"'
         }
       })

@@ -33,7 +33,7 @@ export default function ResultsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-pink-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -45,7 +45,7 @@ export default function ResultsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-pink-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -69,11 +69,9 @@ export default function ResultsPage() {
                   <div className="text-center">
                     <div className="text-6xl mb-4">📝</div>
                     <h2 className="text-2xl font-black mb-2">평가 세션이 없습니다</h2>
-                    <p className="text-lg font-bold text-gray-700 mb-6">
-                      먼저 평가 세션을 생성해주세요
-                    </p>
+                    
                     <BrutalButton
-                      variant="cyan"
+                      variant="black"
                       size="lg"
                       onClick={() => router.push('/dashboard/create-session')}
                     >
@@ -91,11 +89,11 @@ export default function ResultsPage() {
                       {session.name}
                     </h3>
                     <div className="my-4 space-y-2">
-                      <div className="bg-yellow-100 border-2 border-black p-2">
+                      <div className="bg-white border-2 border-black p-2">
                         <span className="text-sm font-black">세션 코드</span>
                         <p className="text-2xl font-black">{session.sessionCode}</p>
                       </div>
-                      <div className="bg-lime-100 border-2 border-black p-2">
+                      <div className="bg-white border-2 border-black p-2">
                         <span className="text-sm font-black">제출</span>
                         <p className="text-2xl font-black">
                           {session.submissions ? Object.keys(session.submissions).length : 0}명
@@ -103,7 +101,7 @@ export default function ResultsPage() {
                       </div>
                     </div>
                     <BrutalButton
-                      variant="pink"
+                      variant="black"
                       size="md"
                       fullWidth
                       onClick={() => viewSessionResults(session)}
@@ -135,7 +133,7 @@ export default function ResultsPage() {
                 </BrutalButton>
               </div>
 
-              <BrutalCard variant="yellow" padding="lg">
+              <BrutalCard variant="white" padding="lg">
                 <h3 className="text-xl font-black uppercase mb-3">질문</h3>
                 <p className="text-lg font-bold text-gray-800">
                   {selectedSession.question}
@@ -155,7 +153,7 @@ export default function ResultsPage() {
                           <div className="text-3xl">👤</div>
                           <h3 className="text-2xl font-black">{submission.studentName}</h3>
                         </div>
-                        <BrutalCard variant="cyan" padding="md">
+                        <BrutalCard variant="white" padding="md">
                           <h4 className="text-sm font-black uppercase mb-2">답변</h4>
                           <p className="text-base font-semibold text-gray-800">
                             {submission.answer}
@@ -188,7 +186,7 @@ export default function ResultsPage() {
                             </div>
                           ))}
                         </div>
-                        <BrutalCard variant="yellow" padding="sm" className="mt-3">
+                        <BrutalCard variant="white" padding="sm" className="mt-3">
                           <p className="text-xs font-bold text-gray-800">
                             💡 {submission.evaluation?.overallFeedback}
                           </p>
@@ -203,9 +201,6 @@ export default function ResultsPage() {
                 <div className="text-center">
                   <div className="text-6xl mb-4">📭</div>
                   <h3 className="text-2xl font-black mb-2">제출된 답변이 없습니다</h3>
-                  <p className="text-lg font-bold text-gray-700">
-                    학생들이 세션 코드로 참여하면 결과가 표시됩니다
-                  </p>
                 </div>
               </BrutalCard>
             )}

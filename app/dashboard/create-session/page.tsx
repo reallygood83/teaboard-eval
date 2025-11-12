@@ -93,7 +93,7 @@ export default function CreateSessionPage() {
   }
 
   return (
-    <main className="min-h-screen bg-cyan-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
       {/* Header */}
       <header className="border-b-4 border-black bg-black">
         <div className="container-neo py-6 flex items-center justify-between">
@@ -112,9 +112,6 @@ export default function CreateSessionPage() {
           <div className="text-center mb-8">
             <div className="text-6xl mb-4">📝</div>
             <h2 className="text-3xl font-black uppercase mb-2">새 평가 세션</h2>
-            <p className="text-lg font-bold text-gray-700">
-              학생들이 참여할 평가 세션을 만듭니다
-            </p>
           </div>
 
           <div className="space-y-6">
@@ -150,7 +147,7 @@ export default function CreateSessionPage() {
                 ))}
               </select>
               {rubrics.length === 0 && (
-                <p className="mt-2 text-sm font-bold text-orange-600">
+                <p className="mt-2 text-sm font-bold text-gray-700">
                   ⚠️ 먼저 루브릭을 생성해주세요
                 </p>
               )}
@@ -170,26 +167,11 @@ export default function CreateSessionPage() {
               />
             </div>
 
-            {/* 안내 메시지 */}
-            <BrutalCard variant="yellow" padding="md">
-              <div className="flex items-start gap-3">
-                <div className="text-3xl">💡</div>
-                <div>
-                  <p className="font-bold text-gray-800">
-                    <strong>세션 생성 후:</strong>
-                  </p>
-                  <ul className="mt-2 space-y-1 text-sm font-semibold text-gray-700">
-                    <li>• 학생들과 공유할 세션 코드가 발급됩니다</li>
-                    <li>• 학생들은 코드로 평가에 참여할 수 있습니다</li>
-                    <li>• AI가 자동으로 답변을 채점하고 피드백을 제공합니다</li>
-                  </ul>
-                </div>
-              </div>
-            </BrutalCard>
+            
 
             {/* Create Button */}
             <BrutalButton
-              variant="pink"
+              variant="black"
               size="xl"
               fullWidth
               onClick={handleCreate}
