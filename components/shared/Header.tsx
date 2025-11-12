@@ -44,7 +44,6 @@ export function Header() {
               <h1 className="text-2xl md:text-3xl font-black tracking-tight">
                 TeaBoard
               </h1>
-              <p className="text-xs md:text-sm font-bold">Eval Lab</p>
             </div>
           </Link>
 

@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { signInWithGoogle } from '@/lib/firebase/auth'
-import { BrutalButton } from '@/components/shared/BrutalButton'
+import { Button } from '@/components/ui/button'
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert'
 
 export function GoogleSignInButton() {
   const router = useRouter()
@@ -27,29 +28,19 @@ export function GoogleSignInButton() {
 
   return (
     <div className="w-full">
-      <BrutalButton
-        variant="white"
-        size="xl"
+      <Button
+        className="w-full border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)] font-black uppercase"
         onClick={handleGoogleSignIn}
         disabled={loading}
-        icon={
-          loading ? (
-            <span className="text-2xl animate-pulse-brutal">⏳</span>
-          ) : (
-            <span className="text-2xl">🔍</span>
-          )
-        }
       >
         {loading ? 'Google 로그인 중...' : 'Google로 시작하기'}
-      </BrutalButton>
+      </Button>
 
       {error && (
-        <div className="mt-4 bg-orange-400 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-4">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">⚠️</span>
-            <p className="font-bold text-sm">{error}</p>
-          </div>
-        </div>
+        <Alert className="mt-4 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <AlertTitle>로그인 오류</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
       )}
     </div>
   )
