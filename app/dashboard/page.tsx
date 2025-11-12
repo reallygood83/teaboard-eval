@@ -90,7 +90,12 @@ export default function DashboardPage() {
               <p className="text-base font-semibold mb-6">
                 성취기준으로 평가 기준 자동 생성
               </p>
-              <BrutalButton size="md" variant="black" fullWidth>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/create-rubric')}
+              >
                 시작하기
               </BrutalButton>
             </div>
@@ -105,7 +110,12 @@ export default function DashboardPage() {
               <p className="text-base font-semibold mb-6">
                 학생들이 제출할 평가 세션 만들기
               </p>
-              <BrutalButton size="md" variant="black" fullWidth>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/create-session')}
+              >
                 생성하기
               </BrutalButton>
             </div>
@@ -120,7 +130,12 @@ export default function DashboardPage() {
               <p className="text-base font-semibold mb-6">
                 학생별 평가 결과 확인하기
               </p>
-              <BrutalButton size="md" variant="black" fullWidth>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/results')}
+              >
                 보기
               </BrutalButton>
             </div>
