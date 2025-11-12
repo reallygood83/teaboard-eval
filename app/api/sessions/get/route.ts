@@ -28,15 +28,20 @@ export async function GET(request: NextRequest) {
     )
 
     if (!sessionEntry) {
-      return NextResponse.json({ session: null })
+      return NextResponse.json(
+        { error: '세션을 찾을 수 없습니다.' },
+        { status: 404 }
+      )
     }
 
     const [sessionId, sessionData] = sessionEntry as [string, Record<string, any>]
     return NextResponse.json({
-      session: {
-        id: sessionId,
-        ...sessionData
-      }
+      id: sessionId,
+      title: sessionData.name,
+      description: sessionData.question,
+      rubricId: sessionData.rubricId,
+      teacherId: sessionData.teacherId,
+      status: sessionData.status
     })
   } catch (error) {
     console.error('Error loading session:', error)
