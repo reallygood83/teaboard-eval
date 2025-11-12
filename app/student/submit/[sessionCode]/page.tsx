@@ -298,7 +298,7 @@ export default function StudentSubmitPage() {
                   variant="yellow"
                   size="xl"
                   fullWidth
-                  disabled={submitting || !studentName.trim() || selectedImages.length === 0}
+                  disabled={submitting || !studentName.trim() || imagePreviews.length === 0}
                   icon={<span className="text-2xl">🚀</span>}
                 >
                   {submitting ? '제출 중...' : '평가 제출하기'}
