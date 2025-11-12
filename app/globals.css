@@ -26,12 +26,12 @@
   --brutal-gray-700: #374151;
   --brutal-gray-800: #1f2937;
 
-  /* Border & Shadow */
+  /* Border & Shadow - 최소화된 깔끔한 디자인 */
   --brutal-border-width: 4px;
   --brutal-border-heavy: 6px;
-  --brutal-shadow-sm: 4px 4px 0px 0px rgba(0,0,0,1);
-  --brutal-shadow-md: 8px 8px 0px 0px rgba(0,0,0,1);
-  --brutal-shadow-lg: 12px 12px 0px 0px rgba(0,0,0,1);
+  --brutal-shadow-sm: 2px 2px 0px 0px rgba(0,0,0,1);
+  --brutal-shadow-md: 4px 4px 0px 0px rgba(0,0,0,1);
+  --brutal-shadow-lg: 6px 6px 0px 0px rgba(0,0,0,1);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -126,14 +126,14 @@ body {
   box-shadow: var(--brutal-shadow-lg);
 }
 
-/* Hover Effects */
+/* Hover Effects - 부드럽고 깔끔한 효과 */
 .neo-hover {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .neo-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
 }
 
 .neo-card-hover {
@@ -141,8 +141,8 @@ body {
 }
 
 .neo-card-hover:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0px 0px rgba(0,0,0,1);
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
 }
 
 /* Press Effect */

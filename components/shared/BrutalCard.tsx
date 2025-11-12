@@ -39,7 +39,7 @@ export function BrutalCard({
     <div
       onClick={onClick}
       className={`
-        neo-border neo-shadow-md
+        neo-border neo-shadow-sm
         ${hover ? 'neo-card-hover cursor-pointer' : ''}
         ${onClick ? 'cursor-pointer' : ''}
         ${variantStyles[variant]}

@@ -57,18 +57,15 @@ export default function DashboardPage() {
           <div className="flex items-center gap-6">
             <div className="text-7xl">👋</div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-black uppercase">대시보드</h2>
-              {user && (
-                <p className="text-lg font-bold text-gray-700 mt-2">
-                  {user.displayName || user.email}
-                </p>
-              )}
+              <h2 className="text-4xl md:text-5xl font-black">
+                {user?.displayName || user?.email} 선생님 안녕하세요!
+              </h2>
             </div>
           </div>
         </BrutalCard>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-28">
           <BrutalCard
             variant="white"
             padding="lg"
