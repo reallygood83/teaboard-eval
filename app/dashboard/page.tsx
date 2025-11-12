@@ -80,7 +80,7 @@ export default function DashboardPage() {
         </BrutalCard>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <BrutalCard variant="yellow" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">🤖</div>
@@ -121,6 +121,26 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
+          <BrutalCard variant="orange" padding="lg" hover>
+            <div className="text-center">
+              <div className="text-6xl mb-4">📋</div>
+              <h3 className="text-2xl font-black mb-3 uppercase">
+                세션 관리
+              </h3>
+              <p className="text-base font-semibold mb-6">
+                생성된 평가 세션 관리 및 링크 공유
+              </p>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/sessions')}
+              >
+                관리하기
+              </BrutalButton>
+            </div>
+          </BrutalCard>
+
           <BrutalCard variant="pink" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">📊</div>
@@ -137,6 +157,26 @@ export default function DashboardPage() {
                 onClick={() => router.push('/dashboard/results')}
               >
                 보기
+              </BrutalButton>
+            </div>
+          </BrutalCard>
+
+          <BrutalCard variant="blue" padding="lg" hover>
+            <div className="text-center">
+              <div className="text-6xl mb-4">📄</div>
+              <h3 className="text-2xl font-black mb-3 uppercase">
+                평가지 템플릿
+              </h3>
+              <p className="text-base font-semibold mb-6">
+                AI 친화적 A4 평가지 양식 다운로드
+              </p>
+              <BrutalButton
+                size="md"
+                variant="black"
+                fullWidth
+                onClick={() => router.push('/dashboard/templates')}
+              >
+                다운로드
               </BrutalButton>
             </div>
           </BrutalCard>
