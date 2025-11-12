@@ -318,7 +318,7 @@ textarea::placeholder {
    ============================================ */
 
 *:focus-visible {
-  outline: 3px solid var(--brutal-cyan);
+  outline: 3px solid var(--brutal-blue);
   outline-offset: 2px;
 }
 

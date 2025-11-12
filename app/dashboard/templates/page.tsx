@@ -87,6 +87,27 @@ export default function TemplatesPage() {
 
       {/* Content */}
       <div className="container-neo py-12 max-w-5xl mx-auto">
+        {/* 평가지 편집기 안내 카드 */}
+        <BrutalCard variant="lime" padding="xl" className="mb-8">
+          <div className="text-center">
+            <div className="text-6xl mb-4">✏️</div>
+            <h2 className="text-3xl font-black uppercase mb-4">
+              사이트에서 바로 평가지 만들기
+            </h2>
+            <p className="text-lg font-bold text-gray-800 mb-6">
+              평가지 편집기를 사용하면 사이트 내에서 평가지를 작성하고, 저장하고, 인쇄할 수 있습니다!
+            </p>
+            <BrutalButton
+              variant="black"
+              size="xl"
+              onClick={() => router.push('/dashboard/templates/editor')}
+              icon={<span className="text-2xl">🚀</span>}
+            >
+              평가지 편집기 열기
+            </BrutalButton>
+          </div>
+        </BrutalCard>
+
         {/* 안내 카드 */}
         <BrutalCard variant="yellow" padding="lg" className="mb-8">
           <div className="flex items-start gap-4">
@@ -203,21 +224,32 @@ export default function TemplatesPage() {
         </BrutalCard>
 
         {/* 사용 안내 */}
-        <BrutalCard variant="lime" padding="lg">
+        <BrutalCard variant="cyan" padding="lg">
           <div className="flex items-start gap-4">
             <div className="text-4xl">📌</div>
             <div className="flex-1">
               <h3 className="text-xl font-black uppercase mb-3">
-                템플릿 사용 방법
+                평가지 제작 방법 (추천)
               </h3>
-              <ol className="space-y-3 text-base font-semibold text-gray-700">
-                <li><strong>1단계:</strong> 원하는 형식(PDF 또는 워드)으로 템플릿 다운로드</li>
-                <li><strong>2단계:</strong> 워드 파일을 열어 문제 내용 수정 (제목, 문제, 답안 영역 크기 조정 가능)</li>
-                <li><strong>3단계:</strong> 수정한 평가지를 인쇄하여 학생들에게 배부</li>
-                <li><strong>4단계:</strong> 학생들이 작성한 평가지를 스마트폰으로 촬영</li>
-                <li><strong>5단계:</strong> TeaBoard 세션에 사진 업로드하면 AI가 자동 채점</li>
-              </ol>
-              <div className="mt-4 p-4 bg-white border-2 border-black">
+              <div className="mb-4 p-4 bg-white border-2 border-black">
+                <p className="font-black text-base mb-2">✨ <strong>사이트 내 편집기 사용 (권장)</strong></p>
+                <ol className="space-y-2 text-base font-semibold text-gray-700 ml-4">
+                  <li><strong>1단계:</strong> 평가지 편집기 열기</li>
+                  <li><strong>2단계:</strong> 제목과 문제를 직접 입력 (자동 저장)</li>
+                  <li><strong>3단계:</strong> DB 저장 버튼으로 클라우드에 저장</li>
+                  <li><strong>4단계:</strong> 인쇄 버튼으로 바로 출력</li>
+                  <li><strong>5단계:</strong> 학생들이 작성한 평가지를 촬영하여 업로드</li>
+                </ol>
+              </div>
+              <div className="p-4 bg-gray-50 border-2 border-gray-300">
+                <p className="font-black text-base mb-2">📥 <strong>템플릿 다운로드 방식 (선택)</strong></p>
+                <ol className="space-y-2 text-base font-semibold text-gray-600 ml-4">
+                  <li><strong>1단계:</strong> 아래에서 PDF 또는 워드 템플릿 다운로드</li>
+                  <li><strong>2단계:</strong> 워드 파일을 열어 문제 내용 수정</li>
+                  <li><strong>3단계:</strong> 수정한 평가지를 인쇄하여 배부</li>
+                </ol>
+              </div>
+              <div className="mt-4 p-4 bg-yellow-50 border-2 border-yellow-400">
                 <p className="font-black text-sm">💡 <strong>TIP:</strong> 촬영 시 조명이 밝은 곳에서 정면으로 찍으면 OCR 인식률이 높아집니다!</p>
               </div>
             </div>

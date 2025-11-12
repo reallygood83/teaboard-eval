@@ -37,7 +37,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-yellow-400 flex items-center justify-center">
+      <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center">
         <BrutalCard variant="white" padding="xl">
           <div className="flex items-center gap-4">
             <div className="text-4xl animate-pulse-brutal">⏳</div>
@@ -49,7 +49,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="min-h-screen bg-lime-400">
+    <main className="min-h-screen bg-white neo-dots-bg">
 
       {/* Main Content */}
       <div className="container-neo py-12">
@@ -58,27 +58,19 @@ export default function DashboardPage() {
           <div className="flex items-center gap-6">
             <div className="text-7xl">👋</div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-black mb-2 uppercase">
-                환영합니다!
-              </h2>
-              <p className="text-xl font-bold text-gray-700">
-                {user?.displayName || user?.email}님, TeaBoard에 오신 것을 환영합니다!
-              </p>
+              <h2 className="text-4xl md:text-5xl font-black uppercase">대시보드</h2>
             </div>
           </div>
         </BrutalCard>
 
         {/* Quick Actions */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <BrutalCard variant="yellow" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">🤖</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 AI 루브릭 생성
               </h3>
-              <p className="text-base font-semibold mb-6">
-                성취기준으로 평가 기준 자동 생성
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -90,15 +82,12 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="cyan" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">📝</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 새 평가 세션
               </h3>
-              <p className="text-base font-semibold mb-6">
-                학생들이 제출할 평가 세션 만들기
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -110,15 +99,12 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="orange" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">📋</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 세션 관리
               </h3>
-              <p className="text-base font-semibold mb-6">
-                생성된 평가 세션 관리 및 링크 공유
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -130,15 +116,12 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="pink" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">📊</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 평가 결과
               </h3>
-              <p className="text-base font-semibold mb-6">
-                학생별 평가 결과 확인하기
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -150,15 +133,12 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="blue" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">📄</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 평가지 템플릿
               </h3>
-              <p className="text-base font-semibold mb-6">
-                AI 친화적 A4 평가지 양식 다운로드
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -170,15 +150,12 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="purple" padding="lg" hover>
+          <BrutalCard variant="white" padding="lg" hover>
             <div className="text-center">
               <div className="text-6xl mb-4">⚙️</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 AI 모델 설정
               </h3>
-              <p className="text-base font-semibold mb-6">
-                Gemini, Grok API 키 및 모델 선택
-              </p>
               <BrutalButton
                 size="md"
                 variant="black"
@@ -193,7 +170,7 @@ export default function DashboardPage() {
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <BrutalCard variant="orange" padding="lg">
+          <BrutalCard variant="white" padding="lg">
             <div className="text-center">
               <div className="text-5xl mb-3">🎯</div>
               <h3 className="text-sm font-black uppercase mb-2">총 평가</h3>
@@ -201,7 +178,7 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="purple" padding="lg">
+          <BrutalCard variant="white" padding="lg">
             <div className="text-center">
               <div className="text-5xl mb-3">👥</div>
               <h3 className="text-sm font-black uppercase mb-2">총 학생</h3>
@@ -209,7 +186,7 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="blue" padding="lg">
+          <BrutalCard variant="white" padding="lg">
             <div className="text-center">
               <div className="text-5xl mb-3">📤</div>
               <h3 className="text-sm font-black uppercase mb-2">제출</h3>
@@ -217,7 +194,7 @@ export default function DashboardPage() {
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="lime" padding="lg">
+          <BrutalCard variant="white" padding="lg">
             <div className="text-center">
               <div className="text-5xl mb-3">✅</div>
               <h3 className="text-sm font-black uppercase mb-2">완료</h3>
