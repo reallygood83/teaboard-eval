@@ -6,7 +6,6 @@ import { User } from 'firebase/auth'
 import { auth } from '@/lib/firebase/config'
 import { signOut } from '@/lib/firebase/auth'
 import { BrutalCard } from '@/components/shared/BrutalCard'
-import { BrutalButton } from '@/components/shared/BrutalButton'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -59,111 +58,116 @@ export default function DashboardPage() {
             <div className="text-7xl">👋</div>
             <div>
               <h2 className="text-4xl md:text-5xl font-black uppercase">대시보드</h2>
+              {user && (
+                <p className="text-lg font-bold text-gray-700 mt-2">
+                  {user.displayName || user.email}
+                </p>
+              )}
             </div>
           </div>
         </BrutalCard>
 
         {/* Quick Actions */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          <BrutalCard variant="white" padding="lg" hover>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/create-rubric')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">🤖</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 AI 루브릭 생성
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/create-rubric')}
-              >
-                시작하기
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                시작하기 →
+              </p>
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="white" padding="lg" hover>
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/create-session')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">📝</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 새 평가 세션
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/create-session')}
-              >
-                생성하기
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                생성하기 →
+              </p>
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="white" padding="lg" hover>
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/sessions')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">📋</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 세션 관리
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/sessions')}
-              >
-                관리하기
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                관리하기 →
+              </p>
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="white" padding="lg" hover>
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/results')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">📊</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 평가 결과
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/results')}
-              >
-                보기
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                보기 →
+              </p>
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="white" padding="lg" hover>
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/templates')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">📄</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 평가지 템플릿
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/templates')}
-              >
-                다운로드
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                다운로드 →
+              </p>
             </div>
           </BrutalCard>
 
-          <BrutalCard variant="white" padding="lg" hover>
+          <BrutalCard
+            variant="white"
+            padding="lg"
+            hover
+            onClick={() => router.push('/dashboard/settings')}
+          >
             <div className="text-center">
               <div className="text-6xl mb-4">⚙️</div>
               <h3 className="text-2xl font-black mb-3 uppercase">
                 AI 모델 설정
               </h3>
-              <BrutalButton
-                size="md"
-                variant="black"
-                fullWidth
-                onClick={() => router.push('/dashboard/settings')}
-              >
-                설정하기
-              </BrutalButton>
+              <p className="text-base font-bold text-gray-600">
+                설정하기 →
+              </p>
             </div>
           </BrutalCard>
         </div>
