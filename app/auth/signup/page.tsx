@@ -68,40 +68,40 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-pink-400 neo-grid-bg flex items-center justify-center p-4">
+    <div className="min-h-screen bg-white neo-dots-bg flex items-center justify-center p-4">
       <div className="max-w-md w-full">
         {/* Logo/Brand Section */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <Link href="/" className="inline-block neo-hover">
-            <div className="text-7xl mb-4">✨</div>
-            <h1 className="text-4xl font-black tracking-tight mb-2">
+            <div className="text-5xl mb-3">✨</div>
+            <h1 className="text-3xl font-black tracking-tight mb-1">
               환영합니다!
             </h1>
-            <p className="text-lg font-bold">TeaBoard에 가입하세요</p>
+            <p className="text-base font-bold">TeaBoard에 가입하세요</p>
           </Link>
         </div>
 
         {/* Signup Card */}
-        <BrutalCard variant="white" padding="xl">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-black mb-3 uppercase">
+        <BrutalCard variant="white" padding="lg">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-black mb-2 uppercase">
               회원가입
             </h2>
-            <p className="text-lg font-bold text-gray-700">
+            <p className="text-base font-bold text-gray-700">
               교사 계정을 만들어 시작하세요 🚀
             </p>
           </div>
 
           {error && (
-            <BrutalCard variant="orange" padding="md" className="mb-6">
-              <div className="flex items-center gap-3">
-                <span className="text-3xl">⚠️</span>
-                <p className="font-bold">{error}</p>
+            <BrutalCard variant="orange" padding="sm" className="mb-4">
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">⚠️</span>
+                <p className="font-bold text-sm">{error}</p>
               </div>
             </BrutalCard>
           )}
 
-          <form onSubmit={handleEmailSignup} className="space-y-5">
+          <form onSubmit={handleEmailSignup} className="space-y-4">
             <BrutalInput
               type="text"
               label="이름"
@@ -151,7 +151,7 @@ export default function SignupPage() {
             <BrutalButton
               type="submit"
               variant="pink"
-              size="lg"
+              size="md"
               fullWidth
               disabled={loading}
               icon={loading ? <span>⏳</span> : <span>✨</span>}
@@ -160,7 +160,7 @@ export default function SignupPage() {
             </BrutalButton>
           </form>
 
-          <div className="my-8 flex items-center gap-4">
+          <div className="my-6 flex items-center gap-4">
             <div className="flex-1 neo-border border-b-0 border-l-0 border-r-0"></div>
             <span className="font-black uppercase text-sm tracking-wide">또는</span>
             <div className="flex-1 neo-border border-b-0 border-l-0 border-r-0"></div>
@@ -168,7 +168,7 @@ export default function SignupPage() {
 
           <BrutalButton
             variant="outline"
-            size="lg"
+            size="md"
             fullWidth
             onClick={handleGoogleSignup}
             disabled={loading}
@@ -177,11 +177,11 @@ export default function SignupPage() {
             Google로 가입
           </BrutalButton>
 
-          <div className="mt-8 pt-8 neo-border border-b-0 border-l-0 border-r-0">
+          <div className="mt-6 pt-6 neo-border border-b-0 border-l-0 border-r-0">
             <div className="text-center">
               <p className="font-semibold mb-3">이미 계정이 있으신가요?</p>
               <Link href="/auth/login">
-                <BrutalButton variant="yellow" size="md" fullWidth>
+                <BrutalButton variant="yellow" size="sm" fullWidth>
                   🔐 로그인하기
                 </BrutalButton>
               </Link>
@@ -190,7 +190,7 @@ export default function SignupPage() {
         </BrutalCard>
 
         {/* Benefits Section */}
-        <div className="mt-6 space-y-3">
+        <div className="mt-4 space-y-2">
           <BrutalCard variant="lime" padding="sm">
             <div className="flex items-center gap-3">
               <span className="text-2xl">✅</span>
@@ -214,11 +214,9 @@ export default function SignupPage() {
         </div>
 
         {/* Back to Home Link */}
-        <div className="mt-6 text-center">
-          <Link href="/" className="inline-block neo-hover">
-            <BrutalCard variant="white" padding="sm">
-              <span className="font-bold">← 홈으로 돌아가기</span>
-            </BrutalCard>
+        <div className="mt-4 text-center">
+          <Link href="/" className="font-bold text-gray-800 hover:text-black hover:underline">
+            ← 홈으로 돌아가기
           </Link>
         </div>
       </div>
